@@ -1,0 +1,160 @@
+/* Navigation */
+
+.nav {
+  background-color: #55397e;
+  position: relative;
+  margin-bottom: 2rem;
+
+  .container {
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.main-navi {
+  display: none;
+}
+
+.mobile-navi {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 5rem 2rem;
+  background-color: #67459b;
+  list-style: none;
+  width: 280px;
+  max-width: 90%;
+  height: 100%;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 991;
+
+  & li {
+    border-bottom: 1px solid #55397e;
+
+    &:last-child {
+      border: 0;
+    }
+  }
+
+  &.active {
+    transform: translateX(0%);
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.4rem 0;
+    display: block;
+  }
+}
+
+.close-navi {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  width: 30px;
+  height: 26px;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+    display: block;
+    position: absolute;
+    top: 50%;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+.toggle-navi {
+  width: 30px;
+  height: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  position: relative;
+
+  .line {
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+  }
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 990;
+  cursor: pointer;
+}
+
+
+@include md {
+  .nav .container {
+    height: 4rem;
+  }
+  .toggle-navi {
+    display: none;
+  }
+  .main-navi {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .main-navi a {
+    display: block;
+    text-decoration: none;
+    line-height: 4rem;
+    padding: 0 1rem;
+    color: #fff;
+    border-right: 1px solid #67459b;
+    transition: transform 0.3s ease-in-out;
+  }
+  .main-navi a:hover,
+  .main-navi a.router-link-active {
+    background-color: #67459b;
+  }
+}
+
+
+/* Footer navigation */
+
+.footer-navi {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    color: #fff;
+    padding: 0.5rem 1rem;
+    display: block;
+    text-align: center;
+    font-weight: 600;
+  }
+}
+
+
+@include md {
+  .footer-navi {
+    display: flex;
+  }
+}
