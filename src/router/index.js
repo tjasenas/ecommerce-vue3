@@ -57,8 +57,10 @@ const routes = [
 ];
 
 
+
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/ecommerce-vue3/'),
+  // base: "/ecommerce-vue3/",
   routes,
   scrollBehavior() {
     return { top: 0 }

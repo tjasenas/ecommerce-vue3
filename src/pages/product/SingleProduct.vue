@@ -35,10 +35,6 @@ export default {
       const getProductPath = this.$route.params.id;
       this.product = newProduct.find((item) => item.id === +getProductPath);
     },
-    $route() {
-      const getProductPath = this.$route.params.id;
-      this.product = this.storeProduct.find((item) => item.id === +getProductPath);
-    },
   },
 
   methods: {
@@ -57,8 +53,11 @@ export default {
     if (this.$store.getters.getProducts.length === 0) {
       this.$store.dispatch("fetchProducts");
     } else {
-      this.updateContent();
+      const getProductPath = this.$route.params.id;
+      this.product = this.storeProduct.find((item) => item.id === +getProductPath);
     }
+    
+
     if (localStorage.getItem("cart")) {
       const cart = JSON.parse(localStorage.getItem("cart"));
       this.$store.dispatch("fetchCart", cart);
