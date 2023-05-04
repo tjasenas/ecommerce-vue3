@@ -1,7 +1,7 @@
 # Ecommerce app careated with Vue 3 + Vuex + Axios + Router + Vite
 
 This is simple ecommerse app using Vue3<br />
-App is with very basic styling, because main focus was on Vue 3<br /><br />
+App is with very basic styling, because main focus was on Vue 3<br />
 
 All products are fetched from [dummyjson.com](https://dummyjson.com/) with axios and then stored in vuex. <br />
 App has basic sorting by price.<br />
